@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Planner – NobleGold Chiekezie Akachukwu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-nav">
+    <nav class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">NG</span>
+        <span class="logo-name">NobleGold</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html" class="active">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== Page header ===== -->
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">Academic planner</span>
+        <h1>Stay on top of your coursework</h1>
+        <p>Add assignments, tick them off as you finish, and clear what you no longer need.</p>
+      </div>
+    </section>
+
+    <!-- ===== Planner: task panel + summary column ===== -->
+    <section class="container planner-layout">
+
+      <!-- Left: the task panel -->
+      <div class="card task-panel">
+        <h2>Add a new task</h2>
+
+        <!-- Add-task form (planner.js handles the submit) -->
+        <form class="task-form" id="taskForm">
+          <div class="field grow">
+            <label for="taskInput">Task</label>
+            <input type="text" id="taskInput" placeholder="e.g. Finish COS 106 term project">
+          </div>
+          <div class="field">
+            <label for="taskDate">Due date</label>
+            <input type="date" id="taskDate">
+          </div>
+          <button type="submit" class="btn btn-primary">+ Add task</button>
+        </form>
+
+        <!-- Red message shown when the task box is empty -->
+        <p class="form-error" id="taskError">Please type a task before adding it.</p>
+
+        <div class="tasks-head">
+          <h2>My tasks</h2>
+          <!-- Filter tabs: All / Pending / Completed -->
+          <div class="task-tabs" id="taskTabs">
+            <button class="task-tab active" data-filter="all">All</button>
+            <button class="task-tab" data-filter="pending">Pending</button>
+            <button class="task-tab" data-filter="completed">Completed</button>
+          </div>
+        </div>
+
+        <!-- planner.js builds the task rows in here -->
+        <ul class="task-list" id="taskList"></ul>
+
+        <!-- Shown when the list is empty -->
+        <p class="empty-state" id="emptyState">No tasks here yet. Add one above to get started!</p>
+      </div>
+
+      <!-- Right: live summary column (numbers updated by planner.js) -->
+      <aside class="summary-col">
+        <div class="progress-card">
+          <p class="label">Progress</p>
+          <p class="big" id="progressText">0 of 0 done</p>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p class="label" id="progressPercent">0% complete. Keep going!</p>
+        </div>
+
+        <div class="count-cards">
+          <div class="card count-card pending">
+            <p class="num" id="pendingCount">0</p>
+            <p class="label">Pending</p>
+          </div>
+          <div class="card count-card completed">
+            <p class="num" id="completedCount">0</p>
+            <p class="label">Completed</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <strong>Tip</strong>
+          Tasks are saved in your browser, so they're still here when you come back.
+        </div>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 NobleGold Chiekezie Akachukwu &middot; MIVA Open University</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a></li>
+        <li><a href="contact.html">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- Task manager logic -->
+  <script src="js/planner.js"></script>
+</body>
+</html>

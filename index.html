@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Makes the page scale properly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NobleGold Chiekezie Akachukwu – Home</title>
+
+  <!-- Plus Jakarta Sans from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- One shared stylesheet for the whole site -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation (same on every page) ===== -->
+  <header class="site-nav">
+    <nav class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">NG</span>
+        <span class="logo-name">NobleGold</span>
+      </a>
+
+      <!-- Hamburger button, only visible on mobile -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="hero-pill">Student · MIVA Open University</span>
+          <p class="hero-hello">Welcome! I'm</p>
+          <h1 class="hero-name">NobleGold Chiekezie Akachukwu</h1>
+          <p class="hero-intro">
+            Brand identity, product and UI/UX designer based in Lagos.
+            I design clear, useful digital products and I'm learning to
+            build them with HTML, CSS and JavaScript.
+          </p>
+          <div class="hero-buttons">
+            <a href="projects.html" class="btn btn-primary">View my projects</a>
+            <a href="contact.html" class="btn btn-secondary">Contact me</a>
+          </div>
+        </div>
+
+        <!-- Photo in a rounded gold card -->
+        <div class="hero-photo">
+          <img src="images/profile.png" alt="Portrait of NobleGold Chiekezie Akachukwu smiling in a green hoodie">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Brief biography ===== -->
+    <section class="section fade-up">
+      <div class="container bio-inner">
+        <div class="bio-text">
+          <span class="eyebrow">About me</span>
+          <h2 class="section-title">A designer learning to code</h2>
+          <p>
+            I run DGoldCr8tive, a small studio working with brands across
+            Nigeria and East Africa on identity, websites and product design.
+            This term I'm studying web technologies so I can take my designs
+            from Figma all the way to working websites.
+          </p>
+          <a href="about.html" class="bio-link">Read more about me &rarr;</a>
+        </div>
+
+        <!-- Three stat cards -->
+        <div class="bio-stats">
+          <div class="card stat-card">
+            <span class="stat-number">5+</span>
+            <span>Years designing brands and interfaces</span>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-number">50+</span>
+            <span>Client projects delivered</span>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-number">3</span>
+            <span>Web languages this term: HTML, CSS, JS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Featured projects ===== -->
+    <section class="section fade-up">
+      <div class="container">
+        <div class="featured-head">
+          <div>
+            <span class="eyebrow">Selected work</span>
+            <h2 class="section-title">Featured projects</h2>
+          </div>
+          <a href="projects.html" class="bio-link">See all projects &rarr;</a>
+        </div>
+
+        <div class="featured-grid">
+          <!-- Each project card is an <article> (semantic HTML) -->
+          <article class="card project-card">
+            <img src="images/tchub.png" alt="TC Hub Academy flyer with a blue and yellow design and a man wearing a VR headset">
+            <div class="project-card-body">
+              <span class="tag-pill">Graphic Design</span>
+              <h3>TC Hub Academy campaign</h3>
+              <p>Flyer campaign promoting TC Hub's tech courses with a bold blue and yellow look.</p>
+              <a href="projects.html" class="project-link">View project &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <img src="images/aj-empire.png" alt="AJ Empire logo on a vibrant pink and purple gradient background">
+            <div class="project-card-body">
+              <span class="tag-pill">Brand &amp; E-commerce</span>
+              <h3>AJ Empire</h3>
+              <p>Brand identity and online store for a cosmetics brand: elegant script logo with a vibrant pink-purple palette.</p>
+              <a href="projects.html" class="project-link">View project &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <img src="images/ojeka.png" alt="Ojeka fashion brand identity with a model in orange streetwear on a warm earthy background">
+            <div class="project-card-body">
+              <span class="tag-pill">Fashion Branding</span>
+              <h3>Ojeka</h3>
+              <p>Fashion branding and clothing graphics for a fashion label, built on a warm, earthy palette.</p>
+              <a href="projects.html" class="project-link">View project &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 NobleGold Chiekezie Akachukwu &middot; MIVA Open University</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a></li>
+        <li><a href="contact.html">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Shared JavaScript: mobile menu + scroll animations -->
+  <script src="js/main.js"></script>
+</body>
+</html>

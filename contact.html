@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – NobleGold Chiekezie Akachukwu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-nav">
+    <nav class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">NG</span>
+        <span class="logo-name">NobleGold</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== Page header ===== -->
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">Contact</span>
+        <h1>Let's work together</h1>
+        <p>Have a project, a question or just want to say hi? Send me a message.</p>
+      </div>
+    </section>
+
+    <!-- ===== Form + info card ===== -->
+    <section class="container contact-layout">
+
+      <!-- Left: the form card. novalidate = JavaScript does the checking. -->
+      <div class="card contact-form-card">
+
+        <!-- Green message shown after a valid submit -->
+        <p class="success-msg" id="successMsg"></p>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name">
+            <p class="error-text" id="nameError"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+            <p class="error-text" id="emailError"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+234 801 234 5678">
+            <p class="error-text" id="phoneError"></p>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+            <p class="error-text" id="messageError"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+
+      <!-- Right: navy info card -->
+      <aside class="contact-info">
+        <h2>Contact details</h2>
+        <ul>
+          <li>
+            <span class="label">Email</span>
+            <a href="mailto:hello@dgoldcr8tive.com">hello@dgoldcr8tive.com</a>
+          </li>
+          <li>
+            <span class="label">Phone</span>
+            <a href="tel:+2348000000000">+234 800 000 0000</a>
+          </li>
+          <li>
+            <span class="label">Location</span>
+            Lagos, Nigeria
+          </li>
+        </ul>
+
+        <h2>Find me online</h2>
+        <ul>
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub &#8599;</a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn &#8599;</a></li>
+          <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance &#8599;</a></li>
+        </ul>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 NobleGold Chiekezie Akachukwu &middot; MIVA Open University</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a></li>
+        <li><a href="contact.html">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- Form validation logic -->
+  <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,900 @@
+/* ============================================================
+   COS 106 Term Project – NobleGold portfolio
+   One stylesheet shared by every page.
+   Order: variables → base → buttons → nav → page header → footer
+          → home → about → projects → planner → contact
+          → animations → responsive breakpoints
+   ============================================================ */
+
+/* ---------- 1. Colour variables (the whole site uses these) ---------- */
+:root {
+  --navy: #0F1B2D;        /* nav, headers, footer */
+  --gold: #E8B04A;        /* accent, primary buttons */
+  --gold-dark: #B7861F;   /* small uppercase eyebrow labels */
+  --cream: #F7F5F0;       /* page background */
+  --white: #FFFFFF;       /* cards */
+  --ink: #1A1A1A;         /* headings */
+  --muted: #5B6472;       /* body text */
+  --soft: #C9D1DC;        /* light text on navy */
+  --line: #E4E1DA;        /* borders */
+  --green: #2E9E6A;       /* completed */
+  --red: #D14B4B;         /* delete / errors */
+  --tag-bg: #FBF1DC;      /* tag pill background */
+  --tag-text: #9A6A12;    /* tag pill text */
+  --shadow: 0 12px 32px rgba(15, 27, 45, .08); /* soft card shadow */
+}
+
+/* ---------- 2. Base styles ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--cream);
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+/* Centred content column used on every page */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 120px;
+}
+
+/* Vertical rhythm for big page sections */
+.section { padding: 96px 0; }
+
+/* Small uppercase label above section titles */
+.eyebrow {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 12px;
+}
+
+/* Big section titles */
+.section-title {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+/* ---------- 3. Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);           /* small lift on hover */
+  box-shadow: 0 8px 20px rgba(15, 27, 45, .15);
+}
+
+.btn-primary { background: var(--gold); color: var(--navy); }
+
+.btn-secondary {
+  background: transparent;
+  color: inherit;
+  border-color: var(--soft);
+}
+
+/* ---------- 4. Navigation bar (same on every page) ---------- */
+.site-nav {
+  background: var(--navy);
+  height: 84px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo: gold rounded square + name */
+.logo { display: flex; align-items: center; gap: 10px; }
+
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.logo-name { color: var(--white); font-weight: 700; font-size: 18px; }
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--soft);
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 6px;
+  position: relative;
+  transition: color .2s ease;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+/* Active page link: gold with a short gold underline */
+.nav-links a.active { color: var(--gold); }
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* Hamburger button – hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--soft);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* ---------- 5. Page header (inner pages) ---------- */
+.page-header {
+  background: var(--navy);
+  padding: 72px 0;
+}
+
+.page-header h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.page-header p { color: var(--soft); max-width: 560px; }
+
+/* ---------- 6. Footer (same on every page) ---------- */
+.site-footer {
+  background: var(--navy);
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-inner p { color: var(--soft); font-size: 14px; }
+
+.footer-links { display: flex; gap: 24px; list-style: none; }
+
+.footer-links a { color: var(--gold); font-size: 14px; font-weight: 500; }
+
+.footer-links a:hover { text-decoration: underline; }
+
+/* ---------- 7. Home page ---------- */
+
+/* Hero: navy, two columns (text + photo) */
+.hero { background: var(--navy); padding: 88px 0; }
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.hero-text { flex: 1; }
+
+/* Status pill at the top of the hero */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232, 176, 74, .12);
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.hero-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.hero-hello { color: var(--soft); font-size: 20px; margin-bottom: 8px; }
+
+.hero-name {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.hero-intro { color: var(--soft); max-width: 520px; margin-bottom: 32px; }
+
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero .btn-secondary { color: var(--white); }
+
+/* Photo in a rounded gold card */
+.hero-photo {
+  flex: 0 0 380px;
+  background: var(--gold);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.hero-photo img { width: 100%; height: auto; }
+
+/* Brief biography: text left, stat cards right */
+.bio-inner { display: flex; gap: 64px; align-items: flex-start; }
+
+.bio-text { flex: 1; }
+
+.bio-text p { margin-bottom: 20px; }
+
+.bio-link { color: var(--gold-dark); font-weight: 600; }
+
+.bio-link:hover { text-decoration: underline; }
+
+.bio-stats {
+  flex: 0 0 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Reusable white card look */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(15, 27, 45, .12);
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+
+/* Featured projects grid (also used as the base card on Projects page) */
+.featured-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* CSS Grid requirement */
+  gap: 28px;
+}
+
+.project-card { overflow: hidden; display: flex; flex-direction: column; }
+
+.project-card img { height: 220px; object-fit: cover; width: 100%; }
+
+.project-card-body { padding: 24px; }
+
+/* Small tag pill on project cards */
+.tag-pill {
+  display: inline-block;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.project-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.project-card p { font-size: 15px; margin-bottom: 16px; }
+
+.project-link { color: var(--gold-dark); font-weight: 600; font-size: 15px; }
+
+.project-link:hover { text-decoration: underline; }
+
+/* ---------- 8. About page ---------- */
+
+/* Intro + video, two columns */
+.about-intro-inner { display: flex; gap: 64px; align-items: center; }
+
+.about-intro-text { flex: 1; }
+
+.about-video { flex: 0 0 480px; }
+
+.about-video video {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  background: var(--navy);
+}
+
+/* Education table */
+.table-wrap { overflow-x: auto; }  /* lets the table scroll on small screens */
+
+.edu-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.edu-table thead { background: var(--navy); }
+
+.edu-table th {
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 18px 24px;
+}
+
+.edu-table td {
+  padding: 18px 24px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.edu-table td:nth-child(2) { color: var(--ink); font-weight: 600; }
+
+/* Coloured status pills inside tables and the planner */
+.pill {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.pill-progress, .pill-pending { background: var(--tag-bg); color: var(--tag-text); }
+
+.pill-done { background: rgba(46, 158, 106, .12); color: var(--green); }
+
+/* Career aspirations + skills, two columns */
+.goals-skills { display: flex; gap: 64px; align-items: flex-start; }
+
+.goals-col, .skills-col { flex: 1; }
+
+/* Numbered aspiration cards built on an <ol> */
+.goal-list { list-style: none; counter-reset: goal; display: flex; flex-direction: column; gap: 16px; }
+
+.goal-list li {
+  counter-increment: goal;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.goal-list li::before {
+  content: counter(goal);
+  flex: 0 0 34px;
+  height: 34px;
+  background: var(--navy);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Skill progress bars */
+.skills-card { padding: 28px; }
+
+.skill { margin-bottom: 20px; }
+
+.skill:last-child { margin-bottom: 0; }
+
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.skill-top .name { color: var(--ink); font-weight: 600; }
+
+.skill-track {
+  height: 8px;
+  background: var(--cream);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* The gold fill animates from 0 to its width when scrolled into view.
+   JavaScript adds the .filled class; width comes from the inline style. */
+.skill-fill {
+  height: 100%;
+  width: 0;
+  background: var(--gold);
+  border-radius: 999px;
+  transition: width 1.2s ease;
+}
+
+/* Hobbies grid */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* CSS Grid requirement */
+  gap: 24px;
+}
+
+.hobby-card { padding: 26px; }
+
+.hobby-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--gold);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.hobby-card h3 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+
+.hobby-card p { font-size: 14px; }
+
+/* ---------- 9. Projects page ---------- */
+
+/* Filter buttons */
+.filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+
+.filter-btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.filter-btn:hover { border-color: var(--gold); color: var(--ink); }
+
+.filter-btn.active { background: var(--navy); border-color: var(--navy); color: var(--gold); }
+
+/* Large project cards, image + text side by side */
+.big-project {
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+/* Every second card flips image/text (desktop only) */
+.big-project.reverse { flex-direction: row-reverse; }
+
+.big-project-img { flex: 0 0 46%; }
+
+.big-project-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.big-project-body { flex: 1; padding: 40px; }
+
+.big-project-body h3 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.big-project-body > p { margin-bottom: 18px; }
+
+.deliverables { list-style: disc; padding-left: 20px; margin-bottom: 18px; }
+
+.deliverables li { margin-bottom: 4px; font-size: 15px; }
+
+.tools-line { font-size: 14px; color: var(--ink); font-weight: 600; margin-bottom: 24px; }
+
+.big-project-links { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+/* Hidden state used by the JavaScript filter */
+.big-project.hidden { display: none; }
+
+/* Project summary table reuses .edu-table styles */
+
+/* ---------- 10. Planner page ---------- */
+
+.planner-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 64px 0 96px;
+}
+
+.task-panel { flex: 1; padding: 36px; }
+
+.task-panel h2 { font-size: 24px; font-weight: 800; color: var(--ink); margin-bottom: 24px; letter-spacing: -0.02em; }
+
+/* Add-task form: text input + date + button in a row */
+.task-form { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 12px; }
+
+.task-form .field { display: flex; flex-direction: column; gap: 6px; }
+
+.task-form .field.grow { flex: 1; min-width: 200px; }
+
+.task-form label { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+.task-form input {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.task-form input:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+
+/* Red message when the task box is empty */
+.form-error { color: var(--red); font-size: 14px; margin-bottom: 16px; display: none; }
+
+.form-error.show { display: block; }
+
+/* My tasks heading + filter tabs */
+.tasks-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 28px 0 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.task-tabs { display: flex; background: var(--cream); border-radius: 999px; padding: 4px; }
+
+.task-tab {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.task-tab.active { background: var(--navy); color: var(--white); }
+
+/* Task rows */
+.task-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 20px;
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+/* Completed row: light green background, greyed strikethrough title */
+.task-row.done { background: rgba(46, 158, 106, .07); border-color: rgba(46, 158, 106, .25); }
+
+.task-row.done .task-title { color: var(--muted); text-decoration: line-through; }
+
+.task-check { width: 20px; height: 20px; accent-color: var(--green); cursor: pointer; }
+
+.task-info { flex: 1; }
+
+.task-title { font-weight: 600; color: var(--ink); }
+
+.task-meta { font-size: 13px; color: var(--muted); }
+
+.task-delete {
+  background: rgba(209, 75, 75, .1);
+  border: none;
+  color: var(--red);
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.task-delete:hover { background: rgba(209, 75, 75, .22); }
+
+/* Fade used when a task is added or removed (JS adds these classes) */
+.task-row.entering { opacity: 0; transform: translateY(8px); }
+
+.task-row.leaving { opacity: 0; transform: translateX(16px); }
+
+/* Message when there are no tasks */
+.empty-state {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--muted);
+  display: none;
+}
+
+.empty-state.show { display: block; }
+
+/* Summary column on the right */
+.summary-col { flex: 0 0 340px; display: flex; flex-direction: column; gap: 20px; }
+
+.progress-card {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 28px;
+  color: var(--soft);
+}
+
+.progress-card .label { font-size: 14px; margin-bottom: 8px; }
+
+.progress-card .big { font-size: 30px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 16px; }
+
+.progress-track {
+  height: 8px;
+  background: rgba(255, 255, 255, .15);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  border-radius: 999px;
+  transition: width .4s ease;
+}
+
+.count-cards { display: flex; gap: 20px; }
+
+.count-card { flex: 1; padding: 22px; text-align: left; }
+
+.count-card .num { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+
+.count-card.pending .num { color: var(--gold-dark); }
+
+.count-card.completed .num { color: var(--green); }
+
+.count-card .label { font-size: 14px; }
+
+/* Gold tip card */
+.tip-card {
+  background: var(--tag-bg);
+  border-radius: 16px;
+  padding: 22px;
+  font-size: 14px;
+}
+
+.tip-card strong { color: var(--tag-text); display: block; margin-bottom: 6px; }
+
+/* ---------- 11. Contact page ---------- */
+
+.contact-layout { display: flex; gap: 32px; align-items: flex-start; padding: 64px 0 96px; }
+
+.contact-form-card { flex: 1; padding: 36px; }
+
+.contact-form .field { margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px; }
+
+.contact-form label { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--cream);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus { outline: 2px solid var(--gold); border-color: var(--gold); }
+
+/* Red border + message on invalid fields (added by JavaScript) */
+.contact-form .invalid { border-color: var(--red); outline: none; }
+
+.error-text { color: var(--red); font-size: 13px; display: none; }
+
+.error-text.show { display: block; }
+
+/* Green success message after a valid submit */
+.success-msg {
+  display: none;
+  background: rgba(46, 158, 106, .1);
+  color: var(--green);
+  border: 1px solid rgba(46, 158, 106, .3);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.success-msg.show { display: block; }
+
+/* Navy info card on the right */
+.contact-info {
+  flex: 0 0 340px;
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 32px;
+  color: var(--soft);
+}
+
+.contact-info h2 { color: var(--white); font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+
+.contact-info ul { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+
+.contact-info .label { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); display: block; }
+
+.contact-info a:hover { color: var(--white); }
+
+/* ---------- 12. Fade-up animation on scroll ---------- */
+/* Sections start slightly lower and transparent;
+   JavaScript adds .visible when they scroll into view. */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- 13. Responsive breakpoints ---------- */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+  .container { padding: 0 40px; }
+  .section { padding: 72px 0; }
+  .hero-photo { flex-basis: 300px; }
+  .hero-name { font-size: 44px; }
+  .bio-stats { flex-basis: 320px; }
+  .hobby-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columns */
+  .about-video { flex: 0 0 50%; }
+  .summary-col, .contact-info { flex-basis: 300px; }
+}
+
+/* Phones and small tablets: everything stacks to one column */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+
+  /* Hamburger nav */
+  .nav-toggle { display: block; }
+
+  .site-nav { position: relative; }
+
+  .nav-links {
+    display: none;                 /* hidden until the button is tapped */
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 20px 20px;
+    z-index: 10;
+  }
+
+  .nav-links.open { display: flex; } /* JavaScript toggles this class */
+
+  .nav-links li { padding: 10px 0; }
+
+  /* Stack the two-column layouts */
+  .hero-inner,
+  .bio-inner,
+  .about-intro-inner,
+  .goals-skills,
+  .planner-layout,
+  .contact-layout { flex-direction: column; }
+
+  .hero-photo, .bio-stats, .about-video,
+  .summary-col, .contact-info { flex-basis: auto; width: 100%; }
+
+  .hero { padding: 56px 0; }
+  .hero-name { font-size: 38px; }
+  .page-header h1 { font-size: 36px; }
+
+  .featured-grid { grid-template-columns: 1fr; }
+
+  /* Big project cards stack image on top of text */
+  .big-project, .big-project.reverse { flex-direction: column; }
+  .big-project-img { flex-basis: auto; }
+  .big-project-img img { height: 240px; }
+
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .section-title { font-size: 28px; }
+  .hero-name { font-size: 30px; }
+  .page-header h1 { font-size: 30px; }
+  .hobby-grid { grid-template-columns: 1fr; }
+  .count-cards { flex-direction: column; }
+  .big-project-body { padding: 24px; }
+}
