@@ -5,8 +5,8 @@ A responsive, multi-page portfolio and academic planner built with plain **HTML,
 
 ## Live site
 
-- **Live link:** _coming soon (GitHub Pages)_
-- **Repository:** _coming soon_
+- **Live link:** https://dgoldesign.github.io/Cos-106-project/
+- **Repository:** https://github.com/dgoldesign/Cos-106-project
 
 ## Pages
 
